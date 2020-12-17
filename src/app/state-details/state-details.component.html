@@ -1,1 +1,46 @@
-<p>state-details works!</p>
+
+      <div class="row">
+          <h2 class="col-sm-2">details</h2>
+        </div>
+        <div id="loader" class="spinner-border" *ngIf="loading"></div>
+      <div *ngIf="!loading">
+        <div class="row" *ngIf="state">
+          <table class="table ">
+            <tbody>
+              <tr>
+                <th>State Name</th>
+                <td>{{state.state}}</td>
+                <th>Overall Population</th>
+                <td>{{state.population}}</td>
+              </tr>
+              <tr>
+                <th>Sum Of The County Populations</th>
+                <td colspan="3">{{state.sumCountyPopulation}}</td>
+              </tr>
+              <tr>
+                <th>Number Of Counties</th>
+                <td>{{state.counties}}</td>
+                <th>Is Population Sum Equal</th>
+                <td>
+                  <i 
+                    class="fa fa-2x"
+                    [class]="'fa-' + 
+                      (isPopulationSumEqualToPopulation() ? 
+                        'check-circle text-success' : 'times-circle text-danger')"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2 *ngIf="state" >counties</h2>
+        <ul class="list-group row" *ngIf="state">
+          <li 
+              class="list-group-item"
+              *ngFor="let country of state.countiesList"
+          >
+            <label for="name">Name:</label> {{country.county}} ,
+            <label for="population">Population:</label> {{country.population}}
+          </li>
+      </ul>
+      </div>

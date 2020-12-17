@@ -1,0 +1,16 @@
+.scrollable{
+    height: 90vh;
+    overflow-y: scroll;
+    border-left: solid 1px rgba(0,0,0,.125);
+}
+#search-area{
+    height: 10vh;
+}
+
+#search-wrapper{
+    border-bottom: solid 1px rgba(0,0,0,.125);
+}
+
+#loader{
+    margin: 15px;
+}

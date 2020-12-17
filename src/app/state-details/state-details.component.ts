@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IState } from '../interfaces';
 
 @Component({
   selector: 'app-state-details',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StateDetailsComponent implements OnInit {
 
+  @Input() state: IState;
+  @Input() loading: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  isPopulationSumEqualToPopulation(): boolean{
+    return this.state.sumCountyPopulation == this.state.population;
+  }
 }
